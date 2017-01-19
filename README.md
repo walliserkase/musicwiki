@@ -1,5 +1,15 @@
 # musicwiki
 
+Git
+===
+Pusher du code
+1. git add .
+2. git commit -m "Message"
+3. git push
+
+Récupérer du code
+1. git pull
+
 Au démarrage, on charge disons les 50 premiers éléments en base, indépendemment pour chaque liste.
 
 * Clic gauche sur un artiste -> affichage des albums et des pistes de l'artiste
