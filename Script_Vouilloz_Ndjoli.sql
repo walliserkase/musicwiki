@@ -99,10 +99,13 @@ CREATE TABLE StyleMusique (
 CREATE TABLE Note (
     id INTEGER NOT NULL AUTO_INCREMENT,
     numeroPiste INTEGER,
+	noISRC VARCHAR(20) NOT NULL,
     note TINYINT UNSIGNED CHECK (note <= 5),
     PRIMARY KEY (id),
     FOREIGN KEY (numeroPiste)
-        REFERENCES piste (numero)
+        REFERENCES piste (numero),
+	FOREIGN KEY (noISRC)
+		REFERENCES piste (noISRC)
 );
 
 SET FOREIGN_KEY_CHECKS = 1;
