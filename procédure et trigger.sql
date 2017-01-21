@@ -26,4 +26,30 @@ END;
 $$
 delimiter ;
 
+-- Procedure pour facilité l'acquisiton des données relative aux votes concernant une piste en particulier
+DELIMITER $$
+CREATE PROCEDURE info_note_album (IN noISRC VARCHAR(20), OUT moyenne INTEGER, OUT nb_vote LONG)
+BEGIN
+	SELECT 
+    AVG(note), SUM(nbVote)  INTO moyenne, nb_vote
+	FROM
+		piste
+	WHERE
+		piste.noISRC = noISRC;	
+END;
+$$
+DELIMITER ;
+
+-- Trigger qui met à jour les note des albums en fonctions des note atribuées aux pistes
+delimiter $$
+CREATE TRIGGER mise_a_jour_note_album
+AFTER INSERT ON piste
+FOR EACH ROW
+BEGIN
+	CALL info_note_album(NEW.noISRC, @moyenne, @nb_vote);
+    UPDATE album set note = @moyenne, nbVote = @nb_Vote
+    WHERE album.noISRC = NEW.noISRC;
+END;
+$$
+delimiter ;
 
