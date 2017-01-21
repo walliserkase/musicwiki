@@ -9,11 +9,12 @@ public class Album {
     private final Integer anneeParution;
     private final Integer nbExemplairesVendus;
     private final String styleMusique;
+    private final String nomMaisonDisque;
     private final Long note;
     private final Long nbVotes;
 
     public Album(Long noISSN, String nom, Integer anneeParution, Integer nbExemplairesVendus, String styleMusique,
-                 Long note, Long nbVotes) {
+                 Long note, Long nbVotes, String nomMaisonDisque) {
         this.noISSN = noISSN;
         this.nom = nom;
         this.anneeParution = anneeParution;
@@ -21,6 +22,7 @@ public class Album {
         this.styleMusique = styleMusique;
         this.note = note;
         this.nbVotes = nbVotes;
+        this.nomMaisonDisque = nomMaisonDisque;
     }
 
     public Long getNoISSN() {
@@ -42,6 +44,8 @@ public class Album {
     public String getStyleMusique() {
         return styleMusique;
     }
+
+    public String getNomMaisonDisque(){ return nomMaisonDisque;}
 
     public Long getNote() {
         return note;

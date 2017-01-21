@@ -10,6 +10,9 @@ Pusher du code
 Récupérer du code
 1. git pull
 
+Chargement
+==========
+
 Au démarrage, on charge disons les 50 premiers éléments en base, indépendemment pour chaque liste.
 
 * Clic gauche sur un artiste -> affichage des albums et des pistes de l'artiste
