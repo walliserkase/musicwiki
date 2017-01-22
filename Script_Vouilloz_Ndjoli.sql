@@ -92,17 +92,20 @@ CREATE TABLE Collaboration (
 );
 
 CREATE TABLE StyleMusique (
-	id INTEGER NOT NULL AUTO_INCREMENT,
+	id INTEGER AUTO_INCREMENT PRIMARY KEY,
     nom VARCHAR(40) PRIMARY KEY
 );
 
 CREATE TABLE Note (
     id INTEGER NOT NULL AUTO_INCREMENT,
-    numeroPiste INTEGER,
-    note TINYINT UNSIGNED CHECK (note <= 5),
+    numeroPiste INTEGER NOT NULL,
+	noISRC VARCHAR(20) NOT NULL,
+    note TINYINT NOT NULL CHECK (note BETWEEN 0 AND 5),
     PRIMARY KEY (id),
     FOREIGN KEY (numeroPiste)
-        REFERENCES piste (numero)
+        REFERENCES piste (numero),
+	FOREIGN KEY (noISRC)
+		REFERENCES piste (noISRC)
 );
 
 SET FOREIGN_KEY_CHECKS = 1;
