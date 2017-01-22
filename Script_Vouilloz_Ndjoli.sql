@@ -49,9 +49,12 @@ CREATE TABLE Groupe (
 CREATE TABLE RelationAJoue (
     numero INTEGER,
     nom VARCHAR(20) NOT NULL,
-    PRIMARY KEY (numero , nom),
+	noISRC VARCHAR(20) NOT NULL,
+    PRIMARY KEY (numero , nom, noISRC),
     FOREIGN KEY (numero)
         REFERENCES Piste (numero),
+	FOREIGN KEY (noISRC)
+        REFERENCES Piste (noISRC),	
     FOREIGN KEY (nom)
         REFERENCES Groupe (nom)
 );
