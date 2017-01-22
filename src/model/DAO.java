@@ -32,7 +32,7 @@ public class DAO {
     }
 
     public static void saveAlbum(final Album album) {
-        String useDatabaseQuery = "USE musicwiki_bis;";
+        String useDatabaseQuery = "USE musicwiki";
         String query = "INSERT INTO `Album` (`noISRC`,`nom`,`anneeParution`,`nbExemplaireVendu`,`note`,`nbVote`," +
                 "`nomMaisonDisque`, `styleMusique`) VALUES (\"MX ZPD W8 12385\",\"Jean François\",1965,4324,2," +
                 "8937269,\"PEERMUSIC FRANCE\", \"Rock\");";
@@ -56,7 +56,7 @@ public class DAO {
     }
 
     public static void savePiste(final Piste piste) {
-        String useDatabaseQuery = "USE musicwiki_bis;";
+        String useDatabaseQuery = "USE musicwiki;";
         //String [] insertPiste = {"numero", "nom","style de musiqie", "noISRC de l'album"};
 
 
@@ -79,7 +79,7 @@ public class DAO {
         final Integer noPiste = 2;
 
         ResultSet rs;
-        String useDatabaseQuery = "USE musicwiki_bis;";
+        String useDatabaseQuery = "USE musicwiki;";
         String affichage = "";
         String stringVide = "";
         try {
