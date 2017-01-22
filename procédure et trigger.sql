@@ -43,7 +43,7 @@ DELIMITER ;
 -- Trigger qui met à jour les note des albums en fonctions des note atribuées aux pistes
 delimiter $$
 CREATE TRIGGER mise_a_jour_note_album
-AFTER INSERT ON piste
+AFTER UPDATE ON piste
 FOR EACH ROW
 BEGIN
 	CALL info_note_album(NEW.noISRC, @moyenne, @nb_vote);
