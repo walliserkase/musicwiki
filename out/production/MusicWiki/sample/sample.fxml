@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<GridPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<GridPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.60" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
   </columnConstraints>
@@ -28,7 +28,7 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <ListView fx:id="artistListView" onMouseClicked="#onArtistListClicked" prefHeight="200.0" prefWidth="200.0" />
+            <ListView fx:id="artistListView" accessibleText="text" onMouseClicked="#onArtistListClicked" prefHeight="200.0" prefWidth="200.0" />
             <ListView fx:id="albumListView" onMouseClicked="#onAlbumListClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
             <ListView fx:id="trackListView" onMouseClicked="#onTrackListClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
          </children>

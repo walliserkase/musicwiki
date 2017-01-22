@@ -7,6 +7,8 @@ import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import model.DAO;
 
+import java.util.stream.Collectors;
+
 public class Controller {
 
     @FXML
@@ -14,7 +16,9 @@ public class Controller {
 
     public void initialize() {
         ObservableList<String> artistNames = FXCollections.observableArrayList();
-        artistNames.addAll(DAO.getBandNamesDummy());
+        //artistNames.addAll(DAO.getBandNamesDummy());
+        artistNames.addAll(DAO.getGroupes(20).stream().map(groupe -> groupe.getNom()).
+                collect(Collectors.toList()));
 
 
         artistListView.setItems(artistNames);
@@ -23,6 +27,8 @@ public class Controller {
 
 
     public void onArtistListClicked(MouseEvent mouseEvent) {
+
+        System.out.println(artistListView.getSelectionModel().getSelectedItem());
     }
 
     public void onAlbumListClicked(MouseEvent mouseEvent) {

@@ -10,17 +10,18 @@ import java.util.List;
 public class DAO {
 
     private static Connection connection;
-    {
+    static {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/musicWiki",
                     "root", "");
+            System.out.println("connection");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
 
-    public static List<String> getBandNamesDummy() {
+    /*public static List<String> getBandNamesDummy() {
         List<String> artistNames = new ArrayList<>();
         artistNames.add("Sting");
         artistNames.add("Nightwish");
@@ -29,6 +30,63 @@ public class DAO {
         artistNames.add("Justin Bieber");
         artistNames.add("Henri Dès");
         return artistNames;
+    }*/
+
+    public static List<Groupe> getGroupes(final int maxNb) {
+
+        String useDatabaseQuery = "USE musicWiki";
+        String query = "SELECT * FROM Groupe LIMIT " + maxNb + ";";
+        ResultSet results;
+        List<Groupe> groupes = new ArrayList<Groupe>();
+
+
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            results = stmt.executeQuery(query);
+
+            while(results.next()) {
+                final String nom = results.getString("nom");
+                groupes.add(new Groupe(nom, "Awesome music style \\m/"));
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("impossible de créer un statement");
+            System.out.println(query);
+        }
+
+        return groupes;
+    }
+
+    public static List<Interprete> getInterpretes(final int maxNb) {
+
+        String useDatabaseQuery = "USE musicWiki";
+        String query = "SELECT * FROM Interprete LIMIT " + maxNb + ";";
+        ResultSet results;
+        List<Interprete> interpretes = new ArrayList<Interprete>();
+
+
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            results = stmt.executeQuery(query);
+
+            while(results.next()) {
+                final String nomArtiste = results.getString("nomArtiste");
+                final String nom = results.getString("nom");
+                final String prenom = results.getString("prenom");
+                final Date dateNaissance = results.getDate("dateNaissance");
+                interpretes.add(new Interprete(nomArtiste, nom, prenom, dateNaissance));
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("impossible de créer un statement");
+            System.out.println(query);
+        }
+
+        return interpretes;
     }
 
     public static void saveAlbum(final Album album) {
