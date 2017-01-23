@@ -43,3 +43,10 @@ insert into note(numeroPiste, noISRC, note) values (1, "FR-X11-12341234", 1);
 insert into note(numeroPiste, noISRC, note) values (2, "FR-X11-12341234", 0);
 insert into note(numeroPiste, noISRC, note) values (3, "FR-X11-12341234", 3);
 insert into note(numeroPiste, noISRC, note) values (4, "FR-X11-12341234", 2);
+
+insert into stylemusique(nom) value ("Rock");
+insert into stylemusique(nom) value ("Dance");
+insert into stylemusique(nom) value ("Soul");
+insert into stylemusique(nom) value ("Folk");
+insert into stylemusique(nom) value ("K-pop");
+insert into stylemusique(nom) value ("Hip Hop");
