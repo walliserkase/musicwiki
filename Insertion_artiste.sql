@@ -15,10 +15,10 @@ insert into Piste(numero, nom, noISRC) values (1, "À quoi tu sers ? (Intro)", "
 insert into Piste(numero, nom, noISRC) values (2, "Il changeait la vie", "FR-X11-12341234");
 insert into Piste(numero, nom, noISRC) values (3, "Tout petit monde", "FR-X11-12341234");
 insert into Piste(numero, nom, noISRC) values (4, "Entre gris clair et gris foncé", "FR-X11-12341234");
-insert into RelationAJoue(numero, nom) values ("FR-X11-12341234", "Jean-Jacques Goldman");
-insert into RelationAJoue(numero, nom) values ("FR-X11-12341234", "Jean-Jacques Goldman");
-insert into RelationAJoue(numero, nom) values ("FR-X11-12341234", "Jean-Jacques Goldman");
-insert into RelationAJoue(numero, nom) values ("FR-X11-12341234", "Jean-Jacques Goldman");
+insert into RelationAJoue(numero, noISRC, nom) values (1, "FR-X11-12341234", "Jean-Jacques Goldman");
+insert into RelationAJoue(numero, noISRC, nom) values (2, "FR-X11-12341234", "Jean-Jacques Goldman");
+insert into RelationAJoue(numero, noISRC, nom) values (3, "FR-X11-12341234", "Jean-Jacques Goldman");
+insert into RelationAJoue(numero, noISRC, nom) values (4, "FR-X11-12341234", "Jean-Jacques Goldman");
 
 
 

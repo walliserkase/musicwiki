@@ -89,6 +89,43 @@ public class DAO {
         return interpretes;
     }
 
+    public static List<Album> getAlbumsForGroupe(final String groupeName) {
+
+        String useDatabaseQuery = "USE musicWiki ";
+        String query = "SELECT * FROM Album album " +
+                "WHERE album.noISRC IN " +
+                    "(SELECT DISTINCT aJoue.noISRC FROM Groupe groupe " +
+                        "JOIN RelationAJoue aJoue ON aJoue.nom = groupe.nom " +
+                        "JOIN Piste piste ON aJoue.noISRC = piste.noISRC " +
+                        "WHERE groupe.nom = '" + groupeName + "');";
+        ResultSet results;
+        List<Album> albums = new ArrayList<Album>();
+
+
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            results = stmt.executeQuery(query);
+
+            while(results.next()) {
+                final String noISRC = results.getString("noISRC");
+                final String nomAlbum = results.getString("nom");
+                final int anneeParution = results.getInt("anneeParution");
+                final String nomMaisonDisque = results.getString("nomMaisonDisque");
+                albums.add(new Album(noISRC, nomAlbum, anneeParution, 0,
+                        "awesome music style", 0L, 0L, nomMaisonDisque));
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("impossible de créer un statement");
+            System.out.println(query);
+        }
+
+        return albums;
+
+    }
+
     public static void saveAlbum(final Album album) {
         String useDatabaseQuery = "USE musicwiki";
         String query = "INSERT INTO `Album` (`noISRC`,`nom`,`anneeParution`,`nbExemplaireVendu`,`note`,`nbVote`," +
@@ -97,7 +134,7 @@ public class DAO {
 
         String query2 = "INSERT INTO `Album` (`noISRC`,`nom`,`nomMaisonDisque`,`anneeParution`,`nbExemplaireVendu`, " +
                 "`styleMusique`) " +
-                "VALUES (" + "\"" + album.getNoISSN() + "\"" + ',' +"\"" +  album.getNom()+"\"" + ',' +
+                "VALUES (" + "\"" + album.getNoISRC() + "\"" + ',' +"\"" +  album.getNom()+"\"" + ',' +
                 "\"" + album.getNomMaisonDisque() +"\"" +  ','+"\"" +  album.getAnneeParution() +"\"" +
                 ','+ "\"" + album.getNbExemplairesVendus() + "\"" + ',' + "\"" + album.getStyleMusique() + "\");";
 

@@ -13,22 +13,33 @@ public class Controller {
 
     @FXML
     private ListView<String> artistListView = new ListView<String>();
+    @FXML
+    private ListView<String> albumListView  = new ListView<String>();;
+    @FXML
+    private ListView<String> trackListView  = new ListView<String>();;
+
+    private ObservableList<String> artistNames = FXCollections.observableArrayList();
+    private ObservableList<String> albumNames = FXCollections.observableArrayList();
+    private ObservableList<String> trackNames = FXCollections.observableArrayList();
 
     public void initialize() {
-        ObservableList<String> artistNames = FXCollections.observableArrayList();
-        //artistNames.addAll(DAO.getBandNamesDummy());
+        artistListView.setItems(artistNames);
+        albumListView.setItems(albumNames);
+        trackListView.setItems(trackNames);
+
         artistNames.addAll(DAO.getGroupes(20).stream().map(groupe -> groupe.getNom()).
                 collect(Collectors.toList()));
-
-
-        artistListView.setItems(artistNames);
     }
 
 
 
     public void onArtistListClicked(MouseEvent mouseEvent) {
 
-        System.out.println(artistListView.getSelectionModel().getSelectedItem());
+        albumNames.clear();
+        final String selectedGroupe = artistListView.getSelectionModel().getSelectedItem();
+        albumNames.addAll(DAO.getAlbumsForGroupe(selectedGroupe).stream().map(album -> album.getNom()).
+                collect(Collectors.toList()));
+
     }
 
     public void onAlbumListClicked(MouseEvent mouseEvent) {

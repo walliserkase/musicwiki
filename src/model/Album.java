@@ -4,7 +4,7 @@ package model;
  * Created by alex on 15.01.17.
  */
 public class Album {
-    private final Long noISSN;
+    private final String noISRC;
     private final String nom;
     private final Integer anneeParution;
     private final Integer nbExemplairesVendus;
@@ -13,9 +13,9 @@ public class Album {
     private final Long note;
     private final Long nbVotes;
 
-    public Album(Long noISSN, String nom, Integer anneeParution, Integer nbExemplairesVendus, String styleMusique,
+    public Album(String noISRC, String nom, Integer anneeParution, Integer nbExemplairesVendus, String styleMusique,
                  Long note, Long nbVotes, String nomMaisonDisque) {
-        this.noISSN = noISSN;
+        this.noISRC = noISRC;
         this.nom = nom;
         this.anneeParution = anneeParution;
         this.nbExemplairesVendus = nbExemplairesVendus;
@@ -25,8 +25,8 @@ public class Album {
         this.nomMaisonDisque = nomMaisonDisque;
     }
 
-    public Long getNoISSN() {
-        return noISSN;
+    public String getNoISRC() {
+        return noISRC;
     }
 
     public String getNom() {
