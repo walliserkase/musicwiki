@@ -123,7 +123,38 @@ public class DAO {
         }
 
         return albums;
+    }
 
+    public static List<Piste> getPistesForAlbum(final String albumName) {
+        String useDatabaseQuery = "USE musicWiki ";
+        String query = "SELECT * FROM Piste piste " +
+                        "JOIN Album album on piste.noISRC = album.noISRC " +
+                        "WHERE album.nom = '" + albumName + "' " +
+                        "ORDER BY piste.numero ASC";
+        ResultSet results;
+        List<Piste> pistes = new ArrayList<Piste>();
+
+
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            results = stmt.executeQuery(query);
+
+            while(results.next()) {
+                final String nom = results.getString("nom");
+                final int numero = results.getInt("numero");
+                final String noISRC = results.getString("noISRC");
+                pistes.add(new Piste(nom, numero, 0L,
+                        "awesome music style", 0, 0L, noISRC));
+            }
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("impossible de créer un statement");
+            System.out.println(query);
+        }
+
+        return pistes;
     }
 
     public static void saveAlbum(final Album album) {

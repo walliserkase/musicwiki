@@ -5,8 +5,12 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
+import model.Album;
 import model.DAO;
+import model.Groupe;
+import model.Piste;
 
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Controller {
@@ -27,7 +31,8 @@ public class Controller {
         albumListView.setItems(albumNames);
         trackListView.setItems(trackNames);
 
-        artistNames.addAll(DAO.getGroupes(20).stream().map(groupe -> groupe.getNom()).
+        List<Groupe> queryResults = DAO.getGroupes(20);
+        artistNames.addAll(queryResults.stream().map(groupe -> groupe.getNom()).
                 collect(Collectors.toList()));
     }
 
@@ -36,14 +41,22 @@ public class Controller {
     public void onArtistListClicked(MouseEvent mouseEvent) {
 
         albumNames.clear();
+        trackNames.clear();
         final String selectedGroupe = artistListView.getSelectionModel().getSelectedItem();
-        albumNames.addAll(DAO.getAlbumsForGroupe(selectedGroupe).stream().map(album -> album.getNom()).
+        List<Album> queryResults = DAO.getAlbumsForGroupe(selectedGroupe);
+        albumNames.addAll(queryResults.stream().map(album -> album.getNom()).
                 collect(Collectors.toList()));
 
     }
 
     public void onAlbumListClicked(MouseEvent mouseEvent) {
-        // par exemple: DAO.loadData();
+
+        trackNames.clear();
+        final String selectedAlbum = albumListView.getSelectionModel().getSelectedItem();
+        List<Piste> queryResults = DAO.getPistesForAlbum(selectedAlbum);
+        trackNames.addAll(queryResults.stream().map(album -> album.getNom()).
+                collect(Collectors.toList()));
+        System.out.println();
     }
 
     public void onTrackListClicked(MouseEvent mouseEvent) {

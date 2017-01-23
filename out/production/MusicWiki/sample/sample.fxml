@@ -29,8 +29,8 @@
         </rowConstraints>
          <children>
             <ListView fx:id="artistListView" accessibleText="text" onMouseClicked="#onArtistListClicked" prefHeight="200.0" prefWidth="200.0" />
-            <ListView fx:id="albumListView" onMouseClicked="#onAlbumListClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
-            <ListView fx:id="trackListView" onMouseClicked="#onTrackListClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
+            <ListView fx:id="albumListView" accessibleText="text" onMouseClicked="#onAlbumListClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" />
+            <ListView fx:id="trackListView" accessibleText="text" onMouseClicked="#onTrackListClicked" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2" />
          </children>
       </GridPane>
    </children>
