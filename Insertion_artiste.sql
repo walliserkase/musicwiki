@@ -31,5 +31,5 @@ insert into RelationAJoue(numero, noISRC, nom) values (8, "FR-X11-56785678", "Je
 insert into RelationAJoue(numero, noISRC, nom) values (10, "FR-X11-56785678", "Jean-Jacques Goldman");
 insert into RelationAJoue(numero, noISRC, nom) values (11, "FR-X11-56785678", "Jean-Jacques Goldman");
 
-
-
+insert into typeinstrument(nomArtiste, instrument) values ("Jean-Jacques Goldman", "Guitare");
+insert into typevoix(nomArtiste, voix) value ("Jean-Jacques Goldman", "Soprano");
