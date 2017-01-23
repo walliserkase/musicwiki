@@ -47,7 +47,8 @@ public class DAO {
 
             while(results.next()) {
                 final String nom = results.getString("nom");
-                groupes.add(new Groupe(nom, "Awesome music style \\m/"));
+                final String commentaire = results.getString("commentaire");
+                groupes.add(new Groupe(nom, commentaire, "Awesome music style \\m/"));
             }
         }
         catch(Exception e){
@@ -110,10 +111,11 @@ public class DAO {
             while(results.next()) {
                 final String noISRC = results.getString("noISRC");
                 final String nomAlbum = results.getString("nom");
+                final String commentaire = results.getString("commentaire");
                 final int anneeParution = results.getInt("anneeParution");
                 final String nomMaisonDisque = results.getString("nomMaisonDisque");
                 albums.add(new Album(noISRC, nomAlbum, anneeParution, 0,
-                        "awesome music style", 0L, 0L, nomMaisonDisque));
+                        "awesome music style", commentaire, 0L, 0L, nomMaisonDisque));
             }
         }
         catch(Exception e){
@@ -143,9 +145,10 @@ public class DAO {
             while(results.next()) {
                 final String nom = results.getString("nom");
                 final int numero = results.getInt("numero");
+                final String commentaire = results.getString("commentaire");
                 final String noISRC = results.getString("noISRC");
                 pistes.add(new Piste(nom, numero, 0L,
-                        "awesome music style", 0, 0L, noISRC));
+                        "awesome music style", commentaire, 0, 0L, noISRC));
             }
         }
         catch(Exception e){

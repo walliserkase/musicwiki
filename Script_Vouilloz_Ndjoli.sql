@@ -12,10 +12,11 @@ CREATE TABLE MaisonDisque (
 
 CREATE TABLE Album (
     noISRC VARCHAR(20) PRIMARY KEY,
-    nom VARCHAR(20) NOT NULL,
+    nom VARCHAR(60) NOT NULL,
     anneeParution INTEGER,
     nbExemplaireVendu INTEGER,
     styleMusique INTEGER,
+		commentaire VARCHAR(100),
     note TINYINT DEFAULT 0,
     nbVote INTEGER DEFAULT 0,
     nomMaisonDisque VARCHAR(20) NOT NULL,
@@ -30,6 +31,7 @@ CREATE TABLE Piste (
     nom VARCHAR(60) NOT NULL,
     duree TIME DEFAULT '00:01:00',
     styleMusique INTEGER,
+		commentaire VARCHAR(100),
     note TINYINT DEFAULT 0,
     nbVote INTEGER DEFAULT 0,
     noISRC VARCHAR(20),
@@ -41,7 +43,8 @@ CREATE TABLE Piste (
 
 CREATE TABLE Groupe (
     nom VARCHAR(60) PRIMARY KEY,
-    styleMusique INTEGER,
+		commentaire VARCHAR(200),    
+		styleMusique INTEGER,
     FOREIGN KEY (styleMusique)
         REFERENCES StyleMusique (id)
 );
@@ -96,7 +99,7 @@ CREATE TABLE Collaboration (
 
 CREATE TABLE StyleMusique (
 	id INTEGER AUTO_INCREMENT PRIMARY KEY,
-    nom VARCHAR(40) PRIMARY KEY
+    nom VARCHAR(40) 
 );
 
 CREATE TABLE Note (

@@ -3,6 +3,7 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import model.Album;
@@ -16,15 +17,17 @@ import java.util.stream.Collectors;
 public class Controller {
 
     @FXML
-    private ListView<String> artistListView = new ListView<String>();
+    private Label infoLabel = new Label();
     @FXML
-    private ListView<String> albumListView  = new ListView<String>();;
+    private ListView<Groupe> artistListView = new ListView<Groupe>();
     @FXML
-    private ListView<String> trackListView  = new ListView<String>();;
+    private ListView<Album> albumListView  = new ListView<Album>();
+    @FXML
+    private ListView<Piste> trackListView  = new ListView<Piste>();;
 
-    private ObservableList<String> artistNames = FXCollections.observableArrayList();
-    private ObservableList<String> albumNames = FXCollections.observableArrayList();
-    private ObservableList<String> trackNames = FXCollections.observableArrayList();
+    private ObservableList<Groupe> artistNames = FXCollections.observableArrayList();
+    private ObservableList<Album> albumNames = FXCollections.observableArrayList();
+    private ObservableList<Piste> trackNames = FXCollections.observableArrayList();
 
     public void initialize() {
         artistListView.setItems(artistNames);
@@ -32,34 +35,43 @@ public class Controller {
         trackListView.setItems(trackNames);
 
         List<Groupe> queryResults = DAO.getGroupes(20);
-        artistNames.addAll(queryResults.stream().map(groupe -> groupe.getNom()).
-                collect(Collectors.toList()));
+        artistNames.addAll(queryResults);
     }
 
 
 
     public void onArtistListClicked(MouseEvent mouseEvent) {
 
+        // Update lists
         albumNames.clear();
         trackNames.clear();
-        final String selectedGroupe = artistListView.getSelectionModel().getSelectedItem();
-        List<Album> queryResults = DAO.getAlbumsForGroupe(selectedGroupe);
-        albumNames.addAll(queryResults.stream().map(album -> album.getNom()).
-                collect(Collectors.toList()));
+        final Groupe selectedGroupe = artistListView.getSelectionModel().getSelectedItem();
+        List<Album> queryResults = DAO.getAlbumsForGroupe(selectedGroupe.getNom());
+        albumNames.addAll(queryResults);
+
+        // Update label
+        infoLabel.setText(selectedGroupe.getInfo());
 
     }
 
     public void onAlbumListClicked(MouseEvent mouseEvent) {
 
+        // Update lists
         trackNames.clear();
-        final String selectedAlbum = albumListView.getSelectionModel().getSelectedItem();
-        List<Piste> queryResults = DAO.getPistesForAlbum(selectedAlbum);
-        trackNames.addAll(queryResults.stream().map(album -> album.getNom()).
-                collect(Collectors.toList()));
-        System.out.println();
+        final Album selectedAlbum = albumListView.getSelectionModel().getSelectedItem();
+        List<Piste> queryResults = DAO.getPistesForAlbum(selectedAlbum.getNom());
+        trackNames.addAll(queryResults);
+
+        // Update label
+        infoLabel.setText(selectedAlbum.getInfo());
+
     }
 
     public void onTrackListClicked(MouseEvent mouseEvent) {
+
+        // Update label
+        final Piste selectedPiste = trackListView.getSelectionModel().getSelectedItem();
+        infoLabel.setText(selectedPiste.getInfo());
     }
 
 

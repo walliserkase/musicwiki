@@ -9,15 +9,18 @@ public class Piste {
     private final Integer numero;
     private final Long duree;
     private final String styleMusique;
+    private final String commentaire;
     private final Integer note;
     private final Long nbVotes;
     private final String noISRC;
 
-    public Piste(String nom, Integer numero, Long duree, String styleMusique, Integer note, Long nbVotes, String noISRC) {
+    public Piste(String nom, Integer numero, Long duree, String styleMusique, String commentaire,
+                 Integer note, Long nbVotes, String noISRC) {
         this.nom = nom;
         this.numero = numero;
         this.duree = duree;
         this.styleMusique = styleMusique;
+        this.commentaire = commentaire;
         this.note = note;
         this.nbVotes = nbVotes;
         this.noISRC = noISRC;
@@ -40,6 +43,10 @@ public class Piste {
         return styleMusique;
     }
 
+    public String getCommentaire() {
+        return commentaire;
+    }
+
     public Integer getNote() {
         return note;
     }
@@ -49,4 +56,14 @@ public class Piste {
     }
 
     public String getNumeroISRC(){ return noISRC;}
+
+    public String getInfo() {
+        return nom + " - " + "Note: " + note  + "\n"
+                + (commentaire == null ? "Pas encore de commentaire pour cette piste" : commentaire);
+    }
+
+    @Override
+    public String toString() {
+        return nom;
+    }
 }

@@ -10,16 +10,18 @@ public class Album {
     private final Integer nbExemplairesVendus;
     private final String styleMusique;
     private final String nomMaisonDisque;
+    private final String commentaire;
     private final Long note;
     private final Long nbVotes;
 
     public Album(String noISRC, String nom, Integer anneeParution, Integer nbExemplairesVendus, String styleMusique,
-                 Long note, Long nbVotes, String nomMaisonDisque) {
+                 String commentaire, Long note, Long nbVotes, String nomMaisonDisque) {
         this.noISRC = noISRC;
         this.nom = nom;
         this.anneeParution = anneeParution;
         this.nbExemplairesVendus = nbExemplairesVendus;
         this.styleMusique = styleMusique;
+        this.commentaire = commentaire;
         this.note = note;
         this.nbVotes = nbVotes;
         this.nomMaisonDisque = nomMaisonDisque;
@@ -47,6 +49,10 @@ public class Album {
 
     public String getNomMaisonDisque(){ return nomMaisonDisque;}
 
+    public String getCommentaire() {
+        return commentaire;
+    }
+
     public Long getNote() {
         return note;
     }
@@ -55,4 +61,13 @@ public class Album {
         return nbVotes;
     }
 
+    public String getInfo() {
+        return nom + " - " + anneeParution + " - " + "Note: " + note  + "\n"
+                + (commentaire == null ? "Pas encore de commentaire pour cet album" : commentaire);
+    }
+
+    @Override
+    public String toString() {
+        return nom;
+    }
 }
