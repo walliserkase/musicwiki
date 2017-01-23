@@ -33,3 +33,20 @@ insert into RelationAJoue(numero, noISRC, nom) values (11, "FR-X11-56785678", "J
 
 insert into TypeInstrument(nomArtiste, instrument) values ("Jean-Jacques Goldman", "Guitare");
 insert into TypeVoix(nomArtiste, voix) value ("Jean-Jacques Goldman", "Soprano");
+
+insert into note(numeroPiste, noISRC, note) values (1, "FR-X11-12341234", 1);
+insert into note(numeroPiste, noISRC, note) values (2, "FR-X11-12341234", 2);
+insert into note(numeroPiste, noISRC, note) values (3, "FR-X11-12341234", 3);
+insert into note(numeroPiste, noISRC, note) values (4, "FR-X11-12341234", 4);
+
+insert into note(numeroPiste, noISRC, note) values (1, "FR-X11-12341234", 1);
+insert into note(numeroPiste, noISRC, note) values (2, "FR-X11-12341234", 0);
+insert into note(numeroPiste, noISRC, note) values (3, "FR-X11-12341234", 3);
+insert into note(numeroPiste, noISRC, note) values (4, "FR-X11-12341234", 2);
+
+insert into stylemusique(nom) value ("Rock");
+insert into stylemusique(nom) value ("Dance");
+insert into stylemusique(nom) value ("Soul");
+insert into stylemusique(nom) value ("Folk");
+insert into stylemusique(nom) value ("K-pop");
+insert into stylemusique(nom) value ("Hip Hop");
