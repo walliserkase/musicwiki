@@ -35,4 +35,38 @@ public class Groupe {
     public String toString() {
         return nom;
     }
+
+    static public class Builder {
+
+        private String nom;
+        private String commentaire;
+        private String styleMusique;
+
+        public Builder() {}
+
+        public Builder(Groupe groupe) {
+            nom = groupe.getNom();
+            commentaire = groupe.getCommenaire();
+            styleMusique = groupe.getStyleMusique();
+        }
+
+        public Groupe build() {
+            return new Groupe(nom, commentaire, styleMusique);
+        }
+
+        public Builder setNom(String nom) {
+            this.nom = nom;
+            return this;
+        }
+
+        public Builder setCommentaire(String commentaire) {
+            this.commentaire = commentaire;
+            return this;
+        }
+
+        public Builder setStyleMusique(String styleMusique) {
+            this.styleMusique = styleMusique;
+            return this;
+        }
+    }
 }

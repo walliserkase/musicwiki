@@ -21,17 +21,6 @@ public class DAO {
     }
 
 
-    /*public static List<String> getBandNamesDummy() {
-        List<String> artistNames = new ArrayList<>();
-        artistNames.add("Sting");
-        artistNames.add("Nightwish");
-        artistNames.add("Iron Maiden");
-        artistNames.add("JJG");
-        artistNames.add("Justin Bieber");
-        artistNames.add("Henri Dès");
-        return artistNames;
-    }*/
-
     public static List<Groupe> getGroupes(final int maxNb) {
 
         String useDatabaseQuery = "USE musicWiki";
@@ -48,7 +37,8 @@ public class DAO {
             while(results.next()) {
                 final String nom = results.getString("nom");
                 final String commentaire = results.getString("commentaire");
-                groupes.add(new Groupe(nom, commentaire, "Awesome music style \\m/"));
+                groupes.add(new Groupe.Builder().setNom(nom).setCommentaire(commentaire)
+                        .setStyleMusique("Awesome music style \\m/").build());
             }
         }
         catch(Exception e){
@@ -113,9 +103,11 @@ public class DAO {
                 final String nomAlbum = results.getString("nom");
                 final String commentaire = results.getString("commentaire");
                 final int anneeParution = results.getInt("anneeParution");
+                final int note = results.getInt("note");
                 final String nomMaisonDisque = results.getString("nomMaisonDisque");
-                albums.add(new Album(noISRC, nomAlbum, anneeParution, 0,
-                        "awesome music style", commentaire, 0L, 0L, nomMaisonDisque));
+                albums.add(new Album.Builder().setNoISRC(noISRC).setNom(nomAlbum).setAnneeParution(anneeParution)
+                        .setNote(note).setStyleMusique("awesome music style").setCommentaire(commentaire)
+                        .setNomMaisonDisque(nomMaisonDisque).build());
             }
         }
         catch(Exception e){
@@ -145,10 +137,12 @@ public class DAO {
             while(results.next()) {
                 final String nom = results.getString("nom");
                 final int numero = results.getInt("numero");
+                final int note = results.getInt("note");
                 final String commentaire = results.getString("commentaire");
                 final String noISRC = results.getString("noISRC");
-                pistes.add(new Piste(nom, numero, 0L,
-                        "awesome music style", commentaire, 0, 0L, noISRC));
+                pistes.add(new Piste.Builder().setNom(nom).setNumero(numero).setNote(note)
+                        .setStyleMusique("awesome music style").setCommentaire(commentaire)
+                        .setNoISRC(noISRC).build());
             }
         }
         catch(Exception e){

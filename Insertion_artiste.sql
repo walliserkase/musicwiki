@@ -2,10 +2,10 @@ insert into Interprete (nomArtiste, nom, prenom, dateNaissance) values ("Johnny 
 insert into Interprete (nomArtiste, nom, prenom, dateNaissance) values ("Michael Jackson", "Michael", "Jackson", "1958-08-29");
 
 insert into Groupe(nom) values ("Mireille Mathieu");
-insert into Groupe(nom) values ("Crucifixion");
+insert into Groupe(nom) values ("Tales Of Northern Puppy Crucifixion");
 insert into Groupe(nom) values ("Nabila");
 
-insert into Groupe(nom, commentaire) values ("Jean-Jacques Goldman", "Jean-Jacques Goldman, né le 11 octobre 1951 dans le 19e 			arrondissement de Paris, est un auteur-compositeur-interprète français, également producteur, de variété et de pop rock principalement.");
+insert into Groupe(nom, commentaire) values ("Jean-Jacques Goldman", "Jean-Jacques Goldman, né le 11 octobre 1951 dans le 19e	arrondissement de Paris, est un auteur-compositeur-interprète français, également producteur, de variété et de pop rock principalement.");
 insert into Groupe(nom) values ("Fredericks Goldman Jones");
 insert into Interprete(nomArtiste, nom, prenom, dateNaissance) values ("Jean-Jacques Goldman", "Jean-Jacques", "Goldman", 1951-10-11);
 insert into Collaboration(nomGroupe, nomArtiste) values ("Jean-Jacques Goldman", "Jean-Jacques Goldman");
