@@ -44,7 +44,7 @@ BEGIN
 	SELECT 
     AVG(note), SUM(nbVote)  INTO moyenne, nb_vote
 	FROM
-		piste
+		Piste
 	WHERE
 		piste.noISRC = noISRC;	
 END;

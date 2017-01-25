@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import model.Album;
 import model.DAO;
@@ -13,11 +14,14 @@ import model.Groupe;
 import model.Piste;
 
 import java.util.List;
+import java.util.Optional;
 
 public class Controller {
 
     @FXML
     private Label infoLabel = new Label();
+    @FXML
+    private TextField noteLabel = new TextField();
     @FXML
     private ListView<Groupe> artistListView = new ListView<Groupe>();
     @FXML
@@ -102,15 +106,19 @@ public class Controller {
 
         // Update label
         infoLabel.setText(selectedAlbum.getInfo());
-
     }
 
     public void onTrackListClicked(MouseEvent mouseEvent) {
 
-        // Update label
+        // Update label and grade
         final Piste selectedPiste = trackListView.getSelectionModel().getSelectedItem();
         infoLabel.setText(selectedPiste.getInfo());
+        noteLabel.setVisible(true);
+        noteLabel.setText(String.valueOf(selectedPiste.getNote()));
     }
 
 
+    public void onEnterNote(KeyEvent keyEvent) {
+
+    }
 }
