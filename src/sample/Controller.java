@@ -28,6 +28,8 @@ public class Controller {
     private ListView<Album> albumListView  = new ListView<Album>();
     @FXML
     private ListView<Piste> trackListView  = new ListView<Piste>();
+    @FXML
+    private Button saveNoteButton = new Button();
 
     private ContextMenu modifyMenu = new ContextMenu();
 
@@ -94,6 +96,7 @@ public class Controller {
         // Update label and grade
         infoLabel.setText(selectedGroupe.getInfo());
         noteLabel.setVisible(false);
+        saveNoteButton.setVisible(false);
 
     }
 
@@ -108,6 +111,7 @@ public class Controller {
         // Update label and grade
         infoLabel.setText(selectedAlbum.getInfo());
         noteLabel.setVisible(false);
+        saveNoteButton.setVisible(false);
     }
 
     public void onTrackListClicked(MouseEvent mouseEvent) {
@@ -116,6 +120,7 @@ public class Controller {
         final Piste selectedPiste = trackListView.getSelectionModel().getSelectedItem();
         infoLabel.setText(selectedPiste.getInfo());
         noteLabel.setVisible(true);
+        saveNoteButton.setVisible(true);
         noteLabel.setText(String.valueOf(selectedPiste.getNote()));
     }
 
