@@ -51,16 +51,16 @@ CREATE TABLE Groupe (
 );
 
 CREATE TABLE RelationAJoue (
-    numero INTEGER,
-    nom VARCHAR(20) NOT NULL,
-	noISRC VARCHAR(20) NOT NULL,
-    PRIMARY KEY (numero , nom, noISRC),
-    FOREIGN KEY (nom)
+    numeroPiste INTEGER,
+		noISRC VARCHAR(20) NOT NULL,    
+		nomGroupe VARCHAR(20) NOT NULL,
+    PRIMARY KEY (numeroPiste , nomGroupe, noISRC),
+    FOREIGN KEY (nomGroupe)
         REFERENCES Groupe (nom)
 );
 
 ALTER TABLE RelationAJoue
-  ADD FOREIGN KEY RelationAJoue_fk (numero, noISRC)
+  ADD FOREIGN KEY RelationAJoue_fk (numeroPiste, noISRC)
   REFERENCES Piste (numero, noISRC);
 
 CREATE TABLE Interprete (
