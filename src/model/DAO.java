@@ -201,8 +201,8 @@ public class DAO {
 
         String useDatabaseQuery = "USE musicWiki ";
         String query = "UPDATE Note(note) SET note = " + note +
-                " WHERE numeroPiste = " + piste.getNumero() + " AND " +
-                " numeroISRC = " + piste.getNumeroISRC() + ";";
+                " WHERE noPiste = " + piste.getNumero() + " AND " +
+                " numeroISRC = '" + piste.getNumeroISRC() + "';";
 
         try {
             Statement stmt = connection.createStatement();
