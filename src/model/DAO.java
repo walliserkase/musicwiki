@@ -197,6 +197,58 @@ public class DAO {
         }
     }
 
+    public static void deleteGroupe(Groupe groupe) {
+        String useDatabaseQuery = "USE musicWiki ";
+        String query = "DELETE FROM Groupe " +
+                "WHERE nom = " + groupe.getNom() + ";";
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            stmt.executeUpdate(query);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("impossible de créer un statement");
+            System.out.println(query);
+        }
+    }
+
+    public static void deleteAlbum(Album album) {
+        String useDatabaseQuery = "USE musicWiki ";
+        String query = "DELETE FROM Album " +
+                        "WHERE noISRC = '" + album.getNoISRC() + "';";
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            stmt.executeUpdate(query);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("impossible de créer un statement");
+            System.out.println(query);
+        }
+    }
+
+    public static void deletePiste(Piste piste) {
+        String useDatabaseQuery = "USE musicWiki ";
+        String condition = " WHERE noISRC = '" + piste.getNumeroISRC() +
+                "' AND numero = " + piste.getNumero() + ";";
+        String deleteRelationAJoueQuery = "DELETE FROM RelationAJoue " + condition;
+        String deletePisteQuery = "DELETE FROM Piste " + condition;
+
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            stmt.executeUpdate(deleteRelationAJoueQuery);
+            stmt.executeUpdate(deletePisteQuery);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("impossible de créer un statement");
+            System.out.println(deletePisteQuery);
+        }
+    }
+
     public static void loadData() {
         final Long noISRC = 12345L;
         final Integer noPiste = 2;
