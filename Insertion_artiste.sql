@@ -1,13 +1,21 @@
 insert into Interprete (nomArtiste, nom, prenom, dateNaissance) values ("Johnny Hallyday", "Johnny", "Hallyday", "1945-06-10");
 insert into Interprete (nomArtiste, nom, prenom, dateNaissance) values ("Michael Jackson", "Michael", "Jackson", "1958-08-29");
 
+insert into stylemusique(nom) value ("Tout style");
+insert into stylemusique(nom) value ("Rock");
+insert into stylemusique(nom) value ("Dance");
+insert into stylemusique(nom) value ("Soul");
+insert into stylemusique(nom) value ("Folk");
+insert into stylemusique(nom) value ("K-pop");
+insert into stylemusique(nom) value ("Hip Hop");
+
 insert into Groupe(nom) values ("Mireille Mathieu");
 insert into Groupe(nom) values ("Tales Of Northern Puppy Crucifixion");
 insert into Groupe(nom) values ("Nabila");
 
 insert into Groupe(nom, commentaire) values ("Jean-Jacques Goldman", "Jean-Jacques Goldman, né le 11 octobre 1951 dans le 19e arrondissement de Paris, est un auteur-compositeur-interprète français, également producteur, de variété et de pop rock principalement.");
 insert into Groupe(nom) values ("Fredericks Goldman Jones");
-insert into Interprete(nomArtiste, nom, prenom, dateNaissance) values ("Jean-Jacques Goldman", "Jean-Jacques", "Goldman", 1951-10-11);
+insert into Interprete(nomArtiste, nom, prenom, dateNaissance) values ("Jean-Jacques Goldman", "Jean-Jacques", "Goldman", "1951-10-11");
 insert into Collaboration(nomGroupe, nomArtiste) values ("Jean-Jacques Goldman", "Jean-Jacques Goldman");
 insert into MaisonDisque(nom) values ("JRG");
 
@@ -22,10 +30,10 @@ insert into RelationAJoue(numeroPiste, noISRC, nomGroupe) values (3, "FR-X11-123
 insert into RelationAJoue(numeroPiste, noISRC, nomGroupe) values (4, "FR-X11-12341234", "Jean-Jacques Goldman");
 
 insert into Album(noISRC, nom, anneeParution, nomMaisonDisque, commentaire) values ("FR-X11-56785678", "En passant", 1997, "JRG", "En passant est le sixième album studio de Jean-Jacques Goldman sorti le 26 août 1997. Parmi les titres les plus connus, on peut citer Sache que je, Bonne idée ou On ira.");
-insert into Piste(numero, nom, noISRC, note) values (7, "Sache que je", "FR-X11-56785678", 3);
-insert into Piste(numero, nom, noISRC, note) values (8, "Bonne idée", "FR-X11-56785678", 5);
-insert into Piste(numero, nom, noISRC, note) values (10, "Tout était dit", "FR-X11-56785678", 5);
-insert into Piste(numero, nom, noISRC, note) values (11, "Quand tu danses", "FR-X11-56785678", 5);
+insert into Piste(numero, nom, noISRC) values (7, "Sache que je", "FR-X11-56785678");
+insert into Piste(numero, nom, noISRC) values (8, "Bonne idée", "FR-X11-56785678");
+insert into Piste(numero, nom, noISRC) values (10, "Tout était dit", "FR-X11-56785678");
+insert into Piste(numero, nom, noISRC) values (11, "Quand tu danses", "FR-X11-56785678");
 insert into RelationAJoue(numeroPiste, noISRC, nomGroupe) values (7, "FR-X11-56785678", "Jean-Jacques Goldman");
 insert into RelationAJoue(numeroPiste, noISRC, nomGroupe) values (8, "FR-X11-56785678", "Jean-Jacques Goldman");
 insert into RelationAJoue(numeroPiste, noISRC, nomGroupe) values (10, "FR-X11-56785678", "Jean-Jacques Goldman");
@@ -44,9 +52,5 @@ insert into note(numeroPiste, noISRC, note) values (2, "FR-X11-12341234", 0);
 insert into note(numeroPiste, noISRC, note) values (3, "FR-X11-12341234", 3);
 insert into note(numeroPiste, noISRC, note) values (4, "FR-X11-12341234", 2);
 
-insert into stylemusique(nom) value ("Rock");
-insert into stylemusique(nom) value ("Dance");
-insert into stylemusique(nom) value ("Soul");
-insert into stylemusique(nom) value ("Folk");
-insert into stylemusique(nom) value ("K-pop");
-insert into stylemusique(nom) value ("Hip Hop");
+
+

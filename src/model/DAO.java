@@ -13,7 +13,7 @@ public class DAO {
     static {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/musicWiki",
-                    "root", "");
+                    "root", "salut");
             System.out.println("connection");
         } catch (SQLException e) {
             e.printStackTrace();
