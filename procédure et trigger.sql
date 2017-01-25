@@ -1,3 +1,15 @@
+delimiter $$
+CREATE TRIGGER delete_piste_after_relation_deleted
+AFTER DELETE ON RelationAJoue
+FOR EACH ROW
+BEGIN
+	DELETE FROM Piste 
+	WHERE numero = OLD.numeroPiste AND noISRC = OLD.noISRC;
+END;
+$$
+delimiter ;
+
+
 -- Procedure pour facilité l'acquisiton des données relative aux votes concernant une piste en particulier
 DELIMITER $$
 CREATE PROCEDURE info_note_piste (IN noISRC VARCHAR(20),IN numero_piste INTEGER, OUT moyenne INTEGER, OUT nb_vote INTEGER)
@@ -11,7 +23,6 @@ BEGIN
 END;
 $$
 DELIMITER ;
-
 
 -- Trigger qui met à jour la note d'une piste à chaque fois qu'une note est ajouté dans la table note
 delimiter $$

@@ -20,7 +20,7 @@
       <BorderPane fx:id="upperPane" prefHeight="200.0" prefWidth="200.0" />
       <BorderPane fx:id="lowerPane" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
          <center>
-            <Label fx:id="infoLabel" BorderPane.alignment="CENTER" />
+            <Label fx:id="infoLabel" wrapText="true" BorderPane.alignment="CENTER" />
          </center></BorderPane>
       <GridPane fx:id="middlePane" GridPane.rowIndex="1">
         <columnConstraints>

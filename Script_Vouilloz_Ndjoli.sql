@@ -27,14 +27,15 @@ CREATE TABLE Album (
 );
 
 CREATE TABLE Piste (
-    numero INTEGER PRIMARY KEY,
-    nom VARCHAR(60) NOT NULL,
+    numero INTEGER,
+		noISRC VARCHAR(20),
+		PRIMARY KEY (numero, noISRC),    
+		nom VARCHAR(60) NOT NULL,
     duree TIME DEFAULT '00:01:00',
     styleMusique INTEGER,
 		commentaire VARCHAR(100),
     note TINYINT DEFAULT 0,
     nbVote INTEGER DEFAULT 0,
-    noISRC VARCHAR(20),
     FOREIGN KEY (noISRC)
         REFERENCES Album (noISRC),
     FOREIGN KEY (styleMusique)
@@ -50,17 +51,17 @@ CREATE TABLE Groupe (
 );
 
 CREATE TABLE RelationAJoue (
-    numero INTEGER,
-    nom VARCHAR(20) NOT NULL,
-	noISRC VARCHAR(20) NOT NULL,
-    PRIMARY KEY (numero , nom, noISRC),
-    FOREIGN KEY (numero)
-        REFERENCES Piste (numero),
-	FOREIGN KEY (noISRC)
-        REFERENCES Piste (noISRC),	
-    FOREIGN KEY (nom)
+    numeroPiste INTEGER,
+		noISRC VARCHAR(20) NOT NULL,    
+		nomGroupe VARCHAR(20) NOT NULL,
+    PRIMARY KEY (numeroPiste , nomGroupe, noISRC),
+    FOREIGN KEY (nomGroupe)
         REFERENCES Groupe (nom)
 );
+
+ALTER TABLE RelationAJoue
+  ADD FOREIGN KEY RelationAJoue_fk (numeroPiste, noISRC)
+  REFERENCES Piste (numero, noISRC);
 
 CREATE TABLE Interprete (
     nomArtiste VARCHAR(20) PRIMARY KEY,

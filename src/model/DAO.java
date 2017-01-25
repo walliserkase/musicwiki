@@ -86,7 +86,7 @@ public class DAO {
         String query = "SELECT * FROM Album album " +
                 "WHERE album.noISRC IN " +
                     "(SELECT DISTINCT aJoue.noISRC FROM Groupe groupe " +
-                        "JOIN RelationAJoue aJoue ON aJoue.nom = groupe.nom " +
+                        "JOIN RelationAJoue aJoue ON aJoue.nomGroupe = groupe.nom " +
                         "JOIN Piste piste ON aJoue.noISRC = piste.noISRC " +
                         "WHERE groupe.nom = '" + groupeName + "');";
         ResultSet results;
@@ -194,6 +194,57 @@ public class DAO {
         catch(Exception e){
             System.out.println("impossible de créer un statement");
             System.out.println(query);
+        }
+    }
+
+    public static void deleteGroupe(Groupe groupe) {
+        String useDatabaseQuery = "USE musicWiki ";
+        String query = "DELETE FROM Groupe " +
+                "WHERE nom = " + groupe.getNom() + ";";
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            stmt.executeUpdate(query);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("impossible de créer un statement");
+            System.out.println(query);
+        }
+    }
+
+    public static void deleteAlbum(Album album) {
+        String useDatabaseQuery = "USE musicWiki ";
+        String query = "DELETE FROM Album " +
+                        "WHERE noISRC = '" + album.getNoISRC() + "';";
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            stmt.executeUpdate(query);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("impossible de créer un statement");
+            System.out.println(query);
+        }
+    }
+
+    public static void deletePiste(Piste piste) {
+        String useDatabaseQuery = "USE musicWiki ";
+        String condition = " WHERE noISRC = '" + piste.getNumeroISRC() +
+                "' AND numero = " + piste.getNumero() + ";";
+        String deleteRelationAJoueQuery = "DELETE FROM RelationAJoue WHERE noISRC = '"
+                + piste.getNumeroISRC() + "' AND numeroPiste = " + piste.getNumero() + ";";
+
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            stmt.executeUpdate(deleteRelationAJoueQuery);
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("impossible de créer un statement");
+            System.out.println(deleteRelationAJoueQuery);
         }
     }
 
