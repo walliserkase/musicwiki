@@ -44,7 +44,7 @@ BEGIN
 	SELECT 
     AVG(note), SUM(nbVote)  INTO moyenne, nb_vote
 	FROM
-		piste
+		Piste
 	WHERE
 		piste.noISRC = noISRC;	
 END;
@@ -54,7 +54,7 @@ DELIMITER ;
 -- Trigger qui met à jour les note des albums en fonctions des note atribuées aux pistes
 delimiter $$
 CREATE TRIGGER mise_a_jour_note_album
-AFTER UPDATE ON piste
+AFTER UPDATE ON Piste
 FOR EACH ROW
 BEGIN
 	CALL info_note_album(NEW.noISRC, @moyenne, @nb_vote);

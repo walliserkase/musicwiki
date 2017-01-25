@@ -2,10 +2,12 @@
 
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
 <GridPane fx:id="mainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
   <columnConstraints>
@@ -17,10 +19,37 @@
     <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <BorderPane fx:id="upperPane" prefHeight="200.0" prefWidth="200.0" />
+      <BorderPane fx:id="upperPane" prefHeight="175.0" prefWidth="613.0">
+         <center>
+            <GridPane fx:id="insertGridPane" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </center></BorderPane>
       <BorderPane fx:id="lowerPane" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="2">
          <center>
-            <Label fx:id="infoLabel" wrapText="true" BorderPane.alignment="CENTER" />
+            <GridPane fx:id="infoGridPane" BorderPane.alignment="CENTER">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="412.0" minWidth="10.0" prefWidth="407.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="290.0" minWidth="10.0" prefWidth="193.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label fx:id="infoLabel" wrapText="true" />
+                   <TextField fx:id="noteLabel" alignment="CENTER" onKeyTyped="#onEnterNote" prefHeight="114.0" prefWidth="193.0" visible="false" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="46.0" />
+                     </font></TextField>
+               </children>
+            </GridPane>
          </center></BorderPane>
       <GridPane fx:id="middlePane" GridPane.rowIndex="1">
         <columnConstraints>
