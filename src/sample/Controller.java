@@ -83,7 +83,6 @@ public class Controller {
 
         // Update lists
         albumList.clear();
-        trackList.clear();
         final Groupe selectedGroupe = artistListView.getSelectionModel().getSelectedItem();
         List<Album> queryResults = DAO.getAlbumsForGroupe(selectedGroupe.getNom());
         albumList.addAll(queryResults);
