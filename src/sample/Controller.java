@@ -91,8 +91,9 @@ public class Controller {
         List<Album> queryResults = DAO.getAlbumsForGroupe(selectedGroupe.getNom());
         albumList.addAll(queryResults);
 
-        // Update label
+        // Update label and grade
         infoLabel.setText(selectedGroupe.getInfo());
+        noteLabel.setVisible(false);
 
     }
 
@@ -104,8 +105,9 @@ public class Controller {
         List<Piste> queryResults = DAO.getPistesForAlbum(selectedAlbum.getNom());
         trackList.addAll(queryResults);
 
-        // Update label
+        // Update label and grade
         infoLabel.setText(selectedAlbum.getInfo());
+        noteLabel.setVisible(false);
     }
 
     public void onTrackListClicked(MouseEvent mouseEvent) {
@@ -119,6 +121,23 @@ public class Controller {
 
 
     public void onEnterNote(KeyEvent keyEvent) {
+        int newNote;
+        Piste selectedPiste = trackListView.getSelectionModel().getSelectedItem();
 
+        int previousNote = selectedPiste.getNote();
+        try {
+           newNote = Integer.parseInt(noteLabel.getText());
+        } catch (Exception e){
+            System.out.println("La note doit être un chiffre");
+            noteLabel.setText(previousNote + "");
+            return;
+        }
+
+        if(newNote < 0 || newNote > 5) {
+            noteLabel.setText(previousNote + "");
+            return;
+        } else {
+            DAO.saveNote(selectedPiste, newNote);
+        }
     }
 }

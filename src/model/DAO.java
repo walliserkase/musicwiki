@@ -13,7 +13,7 @@ public class DAO {
     static {
         try {
             connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/musicWiki",
-                    "root", "salut");
+                    "root", "");
             System.out.println("connection");
         } catch (SQLException e) {
             e.printStackTrace();
@@ -192,6 +192,25 @@ public class DAO {
             stmt.executeUpdate(query);
         }
         catch(Exception e){
+            System.out.println("impossible de créer un statement");
+            System.out.println(query);
+        }
+    }
+
+    public static void saveNote(Piste piste, int note) {
+
+        String useDatabaseQuery = "USE musicWiki ";
+        String query = "UPDATE Note(note) SET note = " + note +
+                " WHERE numeroPiste = " + piste.getNumero() + " AND " +
+                " numeroISRC = " + piste.getNumeroISRC() + ";";
+
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            stmt.executeUpdate(query);
+        }
+        catch(Exception e){
+            e.printStackTrace();
             System.out.println("impossible de créer un statement");
             System.out.println(query);
         }
