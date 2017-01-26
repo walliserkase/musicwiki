@@ -104,10 +104,11 @@ public class DAO {
                 final String commentaire = results.getString("commentaire");
                 final int anneeParution = results.getInt("anneeParution");
                 final int note = results.getInt("note");
+                final int nbVotes = results.getInt("nbVote");
                 final String nomMaisonDisque = results.getString("nomMaisonDisque");
                 albums.add(new Album.Builder().setNoISRC(noISRC).setNom(nomAlbum).setAnneeParution(anneeParution)
                         .setNote(note).setStyleMusique("awesome music style").setCommentaire(commentaire)
-                        .setNomMaisonDisque(nomMaisonDisque).build());
+                        .setNomMaisonDisque(nomMaisonDisque).setNbVotes(nbVotes).build());
             }
         }
         catch(Exception e){
@@ -160,6 +161,32 @@ public class DAO {
         String query = "SELECT note, nbVote FROM Piste " +
                 "WHERE numero = " + piste.getNumero() +
                 " AND noISRC = '" + piste.getNumeroISRC() + "';";
+        ResultSet result;
+        int noteAndNbVotes[] = new int[2];
+        noteAndNbVotes[0] = -1;
+        noteAndNbVotes[1] = -1;
+
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            result = stmt.executeQuery(query);
+            result.next();
+            noteAndNbVotes[0] = result.getInt("note");
+            noteAndNbVotes[1] = result.getInt("nbVote");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("impossible de créer un statement");
+            System.out.println(query);
+        }
+
+        return noteAndNbVotes;
+    }
+
+    public static int[] getNoteAndNbVotesForAlbum(Album album) {
+        String useDatabaseQuery = "USE musicWiki ";
+        String query = "SELECT note, nbVote FROM Album " +
+                "WHERE noISRC = '" + album.getNoISRC() + "';";
         ResultSet result;
         int noteAndNbVotes[] = new int[2];
         noteAndNbVotes[0] = -1;

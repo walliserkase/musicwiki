@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="JavaFXApp" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/model/DAO.java" afterPath="$PROJECT_DIR$/src/model/DAO.java" />
@@ -65,14 +70,14 @@
       <file leaf-file-name="DAO.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/model/DAO.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="127">
-              <caret line="134" column="47" lean-forward="true" selection-start-line="134" selection-start-column="47" selection-end-line="134" selection-end-column="47" />
+            <state relative-caret-position="169">
+              <caret line="107" column="76" lean-forward="false" selection-start-line="107" selection-start-column="76" selection-end-line="107" selection-end-column="76" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#744#752#0" expanded="true" />
                 <element signature="e#1778#1790#0" expanded="true" />
                 <element signature="e#3212#3219#0" expanded="true" />
-                <element signature="e#4830#4837#0" expanded="true" />
+                <element signature="e#4912#4919#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -81,8 +86,8 @@
       <file leaf-file-name="Controller.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="163">
-              <caret line="106" column="52" lean-forward="false" selection-start-line="106" selection-start-column="52" selection-end-line="106" selection-end-column="52" />
+            <state relative-caret-position="284">
+              <caret line="163" column="38" lean-forward="false" selection-start-line="163" selection-start-column="38" selection-end-line="163" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -127,9 +132,12 @@
       <file leaf-file-name="Album.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/model/Album.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="810">
-              <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-              <folding />
+            <state relative-caret-position="305">
+              <caret line="64" column="91" lean-forward="false" selection-start-line="64" selection-start-column="91" selection-end-line="64" selection-end-column="91" />
+              <folding>
+                <element signature="e#1514#1515#0" expanded="true" />
+                <element signature="e#1544#1545#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -179,12 +187,12 @@
         <option value="$PROJECT_DIR$/src/model/DataAccessObject.java" />
         <option value="$PROJECT_DIR$/src/model/Band.java" />
         <option value="$PROJECT_DIR$/src/model/Interprete.java" />
-        <option value="$PROJECT_DIR$/src/model/Album.java" />
         <option value="$PROJECT_DIR$/src/model/Groupe.java" />
         <option value="$PROJECT_DIR$/src/sample/sample.fxml" />
         <option value="$PROJECT_DIR$/src/model/Piste.java" />
         <option value="$PROJECT_DIR$/src/sample/Main.java" />
         <option value="$PROJECT_DIR$/src/sample/Controller.java" />
+        <option value="$PROJECT_DIR$/src/model/Album.java" />
         <option value="$PROJECT_DIR$/src/model/DAO.java" />
       </list>
     </option>
@@ -589,7 +597,7 @@
             <element signature="e#744#752#0" expanded="true" />
             <element signature="e#1778#1790#0" expanded="true" />
             <element signature="e#3212#3219#0" expanded="true" />
-            <element signature="e#4830#4837#0" expanded="true" />
+            <element signature="e#4912#4919#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -614,7 +622,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="414">
           <caret line="23" column="5" lean-forward="false" selection-start-line="23" selection-start-column="5" selection-end-line="23" selection-end-column="5" />
-          <folding />
+          <folding>
+            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -653,7 +664,7 @@
             <element signature="e#744#752#0" expanded="true" />
             <element signature="e#1778#1790#0" expanded="true" />
             <element signature="e#3212#3219#0" expanded="true" />
-            <element signature="e#4830#4837#0" expanded="true" />
+            <element signature="e#4912#4919#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -701,7 +712,7 @@
             <element signature="e#744#752#0" expanded="true" />
             <element signature="e#1778#1790#0" expanded="true" />
             <element signature="e#3212#3219#0" expanded="true" />
-            <element signature="e#4830#4837#0" expanded="true" />
+            <element signature="e#4912#4919#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -749,7 +760,7 @@
             <element signature="e#744#752#0" expanded="true" />
             <element signature="e#1778#1790#0" expanded="true" />
             <element signature="e#3212#3219#0" expanded="true" />
-            <element signature="e#4830#4837#0" expanded="true" />
+            <element signature="e#4912#4919#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -797,7 +808,7 @@
             <element signature="e#744#752#0" expanded="true" />
             <element signature="e#1778#1790#0" expanded="true" />
             <element signature="e#3212#3219#0" expanded="true" />
-            <element signature="e#4830#4837#0" expanded="true" />
+            <element signature="e#4912#4919#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -845,7 +856,7 @@
             <element signature="e#744#752#0" expanded="true" />
             <element signature="e#1778#1790#0" expanded="true" />
             <element signature="e#3212#3219#0" expanded="true" />
-            <element signature="e#4830#4837#0" expanded="true" />
+            <element signature="e#4912#4919#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -966,14 +977,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/model/Album.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="810">
-          <caret line="61" column="5" lean-forward="false" selection-start-line="61" selection-start-column="5" selection-end-line="61" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///usr/lib/jvm/java-8-oracle/javafx-src.zip!/javafx/fxml/FXMLLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="139">
@@ -1014,22 +1017,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="163">
-          <caret line="106" column="52" lean-forward="false" selection-start-line="106" selection-start-column="52" selection-end-line="106" selection-end-column="52" />
+        <state relative-caret-position="284">
+          <caret line="163" column="38" lean-forward="false" selection-start-line="163" selection-start-column="38" selection-end-line="163" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model/Album.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="305">
+          <caret line="64" column="91" lean-forward="false" selection-start-line="64" selection-start-column="91" selection-end-line="64" selection-end-column="91" />
+          <folding>
+            <element signature="e#1514#1515#0" expanded="true" />
+            <element signature="e#1544#1545#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/model/DAO.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="127">
-          <caret line="134" column="47" lean-forward="true" selection-start-line="134" selection-start-column="47" selection-end-line="134" selection-end-column="47" />
+        <state relative-caret-position="169">
+          <caret line="107" column="76" lean-forward="false" selection-start-line="107" selection-start-column="76" selection-end-line="107" selection-end-column="76" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#744#752#0" expanded="true" />
             <element signature="e#1778#1790#0" expanded="true" />
             <element signature="e#3212#3219#0" expanded="true" />
-            <element signature="e#4830#4837#0" expanded="true" />
+            <element signature="e#4912#4919#0" expanded="true" />
           </folding>
         </state>
       </provider>

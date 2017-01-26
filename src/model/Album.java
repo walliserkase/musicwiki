@@ -62,7 +62,7 @@ public class Album {
     }
 
     public String getInfo() {
-        return nom + " - " + anneeParution + " - " + "Note: " + note  + "\n"
+        return nom + " - " + anneeParution + " - " + "Note: " + note  + " (" + nbVotes + " votes)\n"
                 + (commentaire == null ? "Pas encore de commentaire pour cet album" : commentaire);
     }
 

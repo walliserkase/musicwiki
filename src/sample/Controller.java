@@ -153,6 +153,18 @@ public class Controller {
         trackList.add(currentIndex, updatedPiste);
         noteLabel.setText("" + updatedPiste.getNote());
         infoLabel.setText(updatedPiste.getInfo());
+
+        // update album
+        Album selectedAlbum = albumListView.getSelectionModel().getSelectedItem();
+        int[] updatedValuesAlbum = DAO.getNoteAndNbVotesForAlbum(selectedAlbum);
+        Album updatedAlbum =
+                new Album.Builder(selectedAlbum).
+                        setNote(updatedValuesAlbum[0]).setNbVotes(updatedValuesAlbum[1]).build();
+        int currentIndexAlbum = albumList.indexOf(selectedAlbum);
+        albumList.remove(selectedAlbum);
+        albumList.add(currentIndexAlbum, updatedAlbum);
+
+
     }
 
 
