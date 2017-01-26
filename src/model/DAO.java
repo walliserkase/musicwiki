@@ -154,20 +154,23 @@ public class DAO {
         return pistes;
     }
 
-    public static int getNoteForPiste(Piste piste) {
+    public static int[] getNoteAndNbVotesForPiste(Piste piste) {
         String useDatabaseQuery = "USE musicWiki ";
-        String query = "SELECT note FROM Piste " +
+        String query = "SELECT note, nbVote FROM Piste " +
                 "WHERE numero = " + piste.getNumero() +
                 " AND noISRC = '" + piste.getNumeroISRC() + "';";
         ResultSet result;
-        int note = -1;
+        int noteAndNbVotes[] = new int[2];
+        noteAndNbVotes[0] = -1;
+        noteAndNbVotes[1] = -1;
 
         try {
             Statement stmt = connection.createStatement();
             stmt.executeUpdate(useDatabaseQuery);
             result = stmt.executeQuery(query);
             result.next();
-            note = result.getInt("note");
+            noteAndNbVotes[0] = result.getInt("note");
+            noteAndNbVotes[1] = result.getInt("nbVote");
         }
         catch(Exception e){
             e.printStackTrace();
@@ -175,7 +178,7 @@ public class DAO {
             System.out.println(query);
         }
 
-        return note;
+        return noteAndNbVotes;
     }
 
     public static void saveAlbum(final Album album) {

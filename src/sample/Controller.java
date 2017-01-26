@@ -4,10 +4,8 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import model.Album;
 import model.DAO;
@@ -15,7 +13,6 @@ import model.Groupe;
 import model.Piste;
 
 import java.util.List;
-import java.util.Optional;
 
 public class Controller {
 
@@ -148,8 +145,9 @@ public class Controller {
         }
 
         // on update la liste et le label avec la nouvelle piste
+        int[] updatedValues = DAO.getNoteAndNbVotesForPiste(selectedPiste);
         Piste updatedPiste =
-                new Piste.Builder(selectedPiste).setNote(DAO.getNoteForPiste(selectedPiste)).build();
+                new Piste.Builder(selectedPiste).setNote(updatedValues[0]).setNbVotes(updatedValues[1]).build();
         int currentIndex = trackList.indexOf(selectedPiste);
         trackList.remove(selectedPiste);
         trackList.add(currentIndex, updatedPiste);

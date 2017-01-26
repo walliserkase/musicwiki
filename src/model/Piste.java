@@ -58,7 +58,7 @@ public class Piste {
     public String getNumeroISRC(){ return noISRC;}
 
     public String getInfo() {
-        return nom + " - " + "Note: " + note  + "\n"
+        return nom + " - " + "Note: " + note  + " (" + nbVotes + " votes)\n"
                 + (commentaire == null ? "Pas encore de commentaire pour cette piste" : commentaire);
     }
 

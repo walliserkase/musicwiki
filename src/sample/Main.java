@@ -13,18 +13,18 @@ public class Main extends Application {
     private ObservableList<String> artistNames = FXCollections.observableArrayList();
 
     public Main() {
-        artistNames.add("Sting");
+        /*artistNames.add("Sting");
         artistNames.add("Nightwish");
         artistNames.add("Iron Maiden");
         artistNames.add("JJG");
-        artistNames.add("Justin Bieber");
+        artistNames.add("Justin Bieber");*/
     }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("MusicWiki");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 600, 400));
         primaryStage.show();
     }
 
