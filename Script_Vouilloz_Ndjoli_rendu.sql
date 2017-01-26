@@ -1,6 +1,6 @@
 DROP DATABASE IF EXISTS musicWiki;
 
-CREATE DATABASE musicWiki;
+CREATE DATABASE musicWiki ; 
 USE musicWiki;
 
 SET FOREIGN_KEY_CHECKS = 0;
@@ -106,14 +106,15 @@ CREATE TABLE StyleMusique (
 CREATE TABLE Note (
     id INTEGER NOT NULL AUTO_INCREMENT,
     numeroPiste INTEGER NOT NULL,
-	noISRC VARCHAR(20) NOT NULL,
+		noISRC VARCHAR(20) NOT NULL,
     note TINYINT NOT NULL CHECK (note BETWEEN 0 AND 5),
-    PRIMARY KEY (id),
-    FOREIGN KEY (numeroPiste)
-        REFERENCES piste (numero),
-	FOREIGN KEY (noISRC)
-		REFERENCES piste (noISRC)
+    PRIMARY KEY (id)
 );
+
+ALTER TABLE Note
+  ADD FOREIGN KEY Note (numeroPiste, noISRC)
+  REFERENCES Piste (numero, noISRC);
+
 
 SET FOREIGN_KEY_CHECKS = 1;
 

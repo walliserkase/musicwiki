@@ -154,6 +154,30 @@ public class DAO {
         return pistes;
     }
 
+    public static int getNoteForPiste(Piste piste) {
+        String useDatabaseQuery = "USE musicWiki ";
+        String query = "SELECT note FROM Piste " +
+                "WHERE numero = " + piste.getNumero() +
+                " AND noISRC = '" + piste.getNumeroISRC() + "';";
+        ResultSet result;
+        int note = -1;
+
+        try {
+            Statement stmt = connection.createStatement();
+            stmt.executeUpdate(useDatabaseQuery);
+            result = stmt.executeQuery(query);
+            result.next();
+            note = result.getInt("note");
+        }
+        catch(Exception e){
+            e.printStackTrace();
+            System.out.println("impossible de créer un statement");
+            System.out.println(query);
+        }
+
+        return note;
+    }
+
     public static void saveAlbum(final Album album) {
         String useDatabaseQuery = "USE musicwiki";
         String query = "INSERT INTO `Album` (`noISRC`,`nom`,`anneeParution`,`nbExemplaireVendu`,`note`,`nbVote`," +
@@ -200,9 +224,8 @@ public class DAO {
     public static void saveNote(Piste piste, int note) {
 
         String useDatabaseQuery = "USE musicWiki ";
-        String query = "UPDATE Note(note) SET note = " + note +
-                " WHERE noPiste = " + piste.getNumero() + " AND " +
-                " numeroISRC = '" + piste.getNumeroISRC() + "';";
+        String query = "INSERT INTO Note(numeroPiste, noISRC, note) VALUES(" +
+                piste.getNumero() + ", '" + piste.getNumeroISRC() + "', " + note + ");";
 
         try {
             Statement stmt = connection.createStatement();

@@ -1,13 +1,13 @@
 insert into Interprete (nomArtiste, nom, prenom, dateNaissance) values ("Johnny Hallyday", "Johnny", "Hallyday", "1945-06-10");
 insert into Interprete (nomArtiste, nom, prenom, dateNaissance) values ("Michael Jackson", "Michael", "Jackson", "1958-08-29");
 
-insert into stylemusique(nom) value ("Tout style");
-insert into stylemusique(nom) value ("Rock");
-insert into stylemusique(nom) value ("Dance");
-insert into stylemusique(nom) value ("Soul");
-insert into stylemusique(nom) value ("Folk");
-insert into stylemusique(nom) value ("K-pop");
-insert into stylemusique(nom) value ("Hip Hop");
+insert into StyleMusique(nom) value ("Tout style");
+insert into StyleMusique(nom) value ("Rock");
+insert into StyleMusique(nom) value ("Dance");
+insert into StyleMusique(nom) value ("Soul");
+insert into StyleMusique(nom) value ("Folk");
+insert into StyleMusique(nom) value ("K-pop");
+insert into StyleMusique(nom) value ("Hip Hop");
 
 insert into Groupe(nom) values ("Mireille Mathieu");
 insert into Groupe(nom) values ("Tales Of Northern Puppy Crucifixion");
@@ -72,12 +72,12 @@ insert into RelationAJoue(numeroPiste, noISRC, nomGroupe) values (11, "FR-X11-56
 insert into TypeInstrument(nomArtiste, instrument) values ("Jean-Jacques Goldman", "Guitare");
 insert into TypeVoix(nomArtiste, voix) value ("Jean-Jacques Goldman", "Soprano");
 
-insert into note(numeroPiste, noISRC, note) values (1, "FR-X11-12341234", 1);
-insert into note(numeroPiste, noISRC, note) values (2, "FR-X11-12341234", 2);
-insert into note(numeroPiste, noISRC, note) values (3, "FR-X11-12341234", 3);
-insert into note(numeroPiste, noISRC, note) values (4, "FR-X11-12341234", 4);
+insert into Note(numeroPiste, noISRC, note) values (1, "FR-X11-12341234", 1);
+insert into Note(numeroPiste, noISRC, note) values (2, "FR-X11-12341234", 2);
+insert into Note(numeroPiste, noISRC, note) values (3, "FR-X11-12341234", 3);
+insert into Note(numeroPiste, noISRC, note) values (4, "FR-X11-12341234", 4);
 
-insert into note(numeroPiste, noISRC, note) values (1, "FR-X11-12341234", 1);
-insert into note(numeroPiste, noISRC, note) values (2, "FR-X11-12341234", 0);
-insert into note(numeroPiste, noISRC, note) values (3, "FR-X11-12341234", 3);
-insert into note(numeroPiste, noISRC, note) values (4, "FR-X11-12341234", 2);
+insert into Note(numeroPiste, noISRC, note) values (7, "FR-X11-56785678", 1);
+insert into Note(numeroPiste, noISRC, note) values (8, "FR-X11-56785678", 0);
+insert into Note(numeroPiste, noISRC, note) values (10, "FR-X11-56785678", 3);
+insert into Note(numeroPiste, noISRC, note) values (11, "FR-X11-56785678", 2);

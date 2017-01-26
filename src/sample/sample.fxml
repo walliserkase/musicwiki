@@ -50,7 +50,7 @@
                      <font>
                         <Font size="46.0" />
                      </font></TextField>
-                   <Button fx:id="saveNoteButton" visible="false" onMouseClicked="#onEnterNote" text="Ok" GridPane.columnIndex="2" />
+                   <Button fx:id="saveNoteButton" onMouseClicked="#onClickSaveNote" text="Ok" visible="false" GridPane.columnIndex="2" />
                </children>
             </GridPane>
          </center></BorderPane>

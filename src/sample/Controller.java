@@ -4,6 +4,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyEvent;
@@ -88,8 +89,9 @@ public class Controller {
     public void onArtistListClicked(MouseEvent mouseEvent) {
 
         // Update lists
-        albumList.clear();
         final Groupe selectedGroupe = artistListView.getSelectionModel().getSelectedItem();
+        trackList.clear();
+        albumList.clear();
         List<Album> queryResults = DAO.getAlbumsForGroupe(selectedGroupe.getNom());
         albumList.addAll(queryResults);
 
@@ -125,7 +127,7 @@ public class Controller {
     }
 
 
-    public void onEnterNote(KeyEvent keyEvent) {
+    public void onClickSaveNote(MouseEvent mouseEvent) {
         int newNote;
         Piste selectedPiste = trackListView.getSelectionModel().getSelectedItem();
 
@@ -144,5 +146,16 @@ public class Controller {
         } else {
             DAO.saveNote(selectedPiste, newNote);
         }
+
+        // on update la liste et le label avec la nouvelle piste
+        Piste updatedPiste =
+                new Piste.Builder(selectedPiste).setNote(DAO.getNoteForPiste(selectedPiste)).build();
+        int currentIndex = trackList.indexOf(selectedPiste);
+        trackList.remove(selectedPiste);
+        trackList.add(currentIndex, updatedPiste);
+        noteLabel.setText("" + updatedPiste.getNote());
+        infoLabel.setText(updatedPiste.getInfo());
     }
+
+
 }
