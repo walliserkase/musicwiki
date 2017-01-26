@@ -138,9 +138,10 @@ public class DAO {
                 final String nom = results.getString("nom");
                 final int numero = results.getInt("numero");
                 final int note = results.getInt("note");
+                final int nbVotes = results.getInt("nbVote");
                 final String commentaire = results.getString("commentaire");
                 final String noISRC = results.getString("noISRC");
-                pistes.add(new Piste.Builder().setNom(nom).setNumero(numero).setNote(note)
+                pistes.add(new Piste.Builder().setNom(nom).setNumero(numero).setNote(note).setNbVotes(nbVotes)
                         .setStyleMusique("awesome music style").setCommentaire(commentaire)
                         .setNoISRC(noISRC).build());
             }
