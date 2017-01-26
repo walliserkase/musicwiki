@@ -81,3 +81,9 @@ insert into Note(numeroPiste, noISRC, note) values (7, "FR-X11-56785678", 1);
 insert into Note(numeroPiste, noISRC, note) values (8, "FR-X11-56785678", 0);
 insert into Note(numeroPiste, noISRC, note) values (10, "FR-X11-56785678", 3);
 insert into Note(numeroPiste, noISRC, note) values (11, "FR-X11-56785678", 2);
+
+insert into Note(numeroPiste, noISRC, note) values (1, "FG-X00-78941278", 5);
+insert into Note(numeroPiste, noISRC, note) values (2, "FG-X00-78941278", 5);
+insert into Note(numeroPiste, noISRC, note) values (3, "FG-X00-78941278", 5);
+insert into Note(numeroPiste, noISRC, note) values (4, "FG-X00-78941278", 5);
+insert into Note(numeroPiste, noISRC, note) values (5, "FG-X00-78941278", 5);

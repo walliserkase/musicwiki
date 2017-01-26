@@ -13,11 +13,7 @@ public class Main extends Application {
     private ObservableList<String> artistNames = FXCollections.observableArrayList();
 
     public Main() {
-        /*artistNames.add("Sting");
-        artistNames.add("Nightwish");
-        artistNames.add("Iron Maiden");
-        artistNames.add("JJG");
-        artistNames.add("Justin Bieber");*/
+
     }
 
     @Override
@@ -31,9 +27,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-    }
-
-    public ObservableList<String> getArtistNames() {
-        return artistNames;
     }
 }

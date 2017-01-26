@@ -35,6 +35,7 @@ public class Controller {
     private ObservableList<Album> albumList = FXCollections.observableArrayList();
     private ObservableList<Piste> trackList = FXCollections.observableArrayList();
 
+
     public void initialize() {
         // Create right-click menu
         createModifyMenu();
@@ -153,6 +154,7 @@ public class Controller {
         trackList.add(currentIndex, updatedPiste);
         noteLabel.setText("" + updatedPiste.getNote());
         infoLabel.setText(updatedPiste.getInfo());
+        trackListView.getSelectionModel().selectIndices(currentIndex);
 
         // update album
         Album selectedAlbum = albumListView.getSelectionModel().getSelectedItem();
@@ -163,8 +165,7 @@ public class Controller {
         int currentIndexAlbum = albumList.indexOf(selectedAlbum);
         albumList.remove(selectedAlbum);
         albumList.add(currentIndexAlbum, updatedAlbum);
-
-
+        albumListView.getSelectionModel().selectIndices(currentIndexAlbum);
     }
 
 
